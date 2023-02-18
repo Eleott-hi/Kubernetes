@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: wndtn-deployment
+  labels:
+    app: wndtn
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: wndtn
+  template:
+    metadata:
+      labels:
+        app: wndtn
+    spec:
+      containers:
+      - name: wndtn
+        image: eleott/eleott:v1
+        ports:
+        - containerPort: 80
